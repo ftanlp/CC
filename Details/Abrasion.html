@@ -3,36 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Material Details</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Details: Abrasion</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <nav class="navbar">
-        <div class="nav-brand">Materials Catalog</div>
-        <a href="index.html" class="back-btn">Back to Home</a>
+        <div class="nav-brand">Conservation Compendium</div>
+        <a href="../index.html" class="back-btn">Back to Home</a>
     </nav>
 
-    <main class="details-container">
-        <div class="details-column">
-            <h1 id="title"></h1>
-            <img id="main-image" src="" alt="Material Image">
+    <main class="detail-container">
+        <div class="detail-column">
+            <h1 class="detail-title">Abrasion</h1>
+            <img src="" alt="" class="detail-image">
         </div>
-        <div class="details-column">
-            <div class="details-section">
+        <div class="detail-column">
+            <section class="detail-section">
                 <h2>Description:</h2>
-                <p id="description"></p>
-            </div>
-            <div class="details-section">
-                <h2>Treatment Options:</h2>
-                <p id="treatment"></p>
-            </div>
-            <div class="details-section">
+                <p class="description">A gradual loss of surface material due to rubbing, scraping, or wear. An abrasion may look like a roughened surface, a matte area, or a group of scratches. It may be done intentionally to smooth or clean a surface or it may be unintentional, resulting in damage.</p>
+            </section>
+            <section class="detail-section">
+		<h2>Treatment Options:</h2>
+		<p class="treatment">
+                <ul>
+                    <li>Careful non-abrasive cleaning</li>
+                    <li>Stabilization</li>
+                    <li>Protective housing</li>
+                </ul>
+                </p>
+            </section>
+            <section class="detail-section">
                 <h2>Material:</h2>
-                <p id="material"></p>
-            </div>
+                <p class="material">All</p>
+            </section>
         </div>
     </main>
-
-    <script src="script.js"></script>
 </body>
 </html>

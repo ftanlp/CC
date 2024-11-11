@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materials Catalog</title>
+    <title>Materials Archive</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav class="navbar">
-        <div class="nav-brand">Materials Catalog</div>
-        <div class="nav-links">
+        <div class="nav-brand">Conservation Compendium</div>
+        <div class="material-filters">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="textile">Textile</button>
-            <button class="filter-btn" data-filter="paper">Paper/Book</button>
+            <button class="filter-btn" data-filter="paper">Paper</button>
+            <button class="filter-btn" data-filter="paper">Book</button>
             <button class="filter-btn" data-filter="metal">Metal</button>
         </div>
     </nav>
 
-    <main class="grid-container">
-        <!-- Grid items will be dynamically inserted here -->
+    <main>
+        <div class="grid-container" id="gridContainer">
+            <!-- Grid items will be dynamically populated here -->
+        </div>
     </main>
 
     <script src="script.js"></script>

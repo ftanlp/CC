@@ -1,95 +1,90 @@
-// Sample data - Replace with your actual data
-const materialsData = [
-    {
-        id: 1,
-        title: "Cotton Fabric",
-        image: "https://placeholder.com/400x300",
-        description: "Natural cotton fabric suitable for various applications",
-        material: "textile",
-        treatment: "Washing, Ironing, Dry cleaning",
-        shortDescription: "Premium quality cotton fabric"
-    },
-    // Add more items as needed
-];
+// Sample data structure that would be loaded from index.json
+const pages = ['details/abrasion.html', 'details/foxing.html'];
 
-// Check if we're on the index page or details page
-if (document.querySelector('.grid-container')) {
-    // Index page functionality
-    initializeGrid();
-    initializeFilters();
-} else if (document.querySelector('.details-container')) {
-    // Details page functionality
-    loadDetails();
+// Function to fetch and parse HTML content
+async function fetchHTML(url) {
+    try {
+        const response = await fetch(url);
+        const text = await response.text();
+        const parser = new DOMParser();
+        return parser.parseFromString(text, 'text/html');
+    } catch (error) {
+        console.error('Error fetching HTML:', error);
+        return null;
+    }
 }
 
-function initializeGrid() {
-    const container = document.querySelector('.grid-container');
-    
-    materialsData.forEach(item => {
-        const gridItem = createGridItem(item);
-        container.appendChild(gridItem);
-    });
+// Function to extract preview data from detail pages
+async function extractPreviewData(url) {
+    const doc = await fetchHTML(url);
+    if (!doc) return null;
+
+    return {
+        title: doc.querySelector('.detail-title').textContent,
+        description: doc.querySelector('.description').textContent,
+        image: doc.querySelector('.detail-image').src,
+        material: doc.querySelector('.material').textContent,
+        url: url
+    };
 }
 
-function createGridItem(item) {
-    const article = document.createElement('a');
-    article.href = `details.html?id=${item.id}`;
-    article.className = `grid-item ${item.material}`;
+// Function to create grid items
+function createGridItem(data) {
+    const gridItem = document.createElement('a');
+    gridItem.href = data.url;
+    gridItem.className = `grid-item ${data.material.toLowerCase()}`;
     
-    article.innerHTML = `
-        <img src="${item.image}" alt="${item.title}">
+    gridItem.innerHTML = `
+        <img src="${data.image}" alt="${data.title}">
         <div class="grid-content">
-            <h2 class="grid-title">${item.title}</h2>
-            <p class="grid-description">${item.shortDescription}</p>
+            <h2 class="grid-title">${data.title}</h2>
+            <p class="grid-description">${data.description.substring(0, 100)}...</p>
         </div>
     `;
     
-    return article;
+    return gridItem;
 }
 
+// Function to initialize the grid
+async function initializeGrid() {
+    const gridContainer = document.getElementById('gridContainer');
+    const previewData = await Promise.all(pages.map(page => extractPreviewData(page)));
+    
+    previewData.forEach(data => {
+        if (data) {
+            const gridItem = createGridItem(data);
+            gridContainer.appendChild(gridItem);
+        }
+    });
+}
+
+// Function to handle material filtering
 function initializeFilters() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove active class from all buttons
+            const filter = button.dataset.filter;
+            
+            // Update active button
             filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
             button.classList.add('active');
             
-            const filter = button.getAttribute('data-filter');
-            filterGrid(filter);
+            // Filter grid items
+            const gridItems = document.querySelectorAll('.grid-item');
+            gridItems.forEach(item => {
+                if (filter === 'all' || item.classList.contains(filter)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
         });
     });
 }
 
-function filterGrid(filter) {
-    const items = document.querySelectorAll('.grid-item');
-    
-    items.forEach(item => {
-        if (filter === 'all' || item.classList.contains(filter)) {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
-        }
-    });
-}
-
-function loadDetails() {
-    // Get the item ID from URL parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    const itemId = parseInt(urlParams.get('id'));
-    
-    // Find the item in our data
-    const item = materialsData.find(item => item.id === itemId);
-    
-    if (item) {
-        // Populate the details page
-        document.getElementById('title').textContent = item.title;
-        document.getElementById('main-image').src = item.image;
-        document.getElementById('main-image').alt = item.title;
-        document.getElementById('description').textContent = item.description;
-        document.getElementById('treatment').textContent = item.treatment;
-        document.getElementById('material').textContent = item.material;
-    }
-}
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initializeGrid();
+    initializeFilters();
+});
