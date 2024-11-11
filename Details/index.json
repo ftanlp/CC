@@ -1,22 +1,13 @@
-/*To use this system:
-
-Create a "Details" folder in your project
-Add your detail pages following the template structure
-Update index.json when adding new pages
-Make sure each detail page has the required metadata
-
-The script will:
-
-Load the list of detail pages from index.json
-Parse each HTML file to extract grid and detail information
-Cache the results for better performance
-Create grid items and handle filtering
-Link directly to detail pages
-*/
-
 {
     "pages": [
         "details/abrasion.html",
-        "details/foxing.html"
+        "details/creases.html",
+        "details/delamination.html",
+        "details/foxing.html",
+        "details/frass.html",
+        "details/mould.html",
+        "details/pest-damage.html",
+        "details/rust.html",
+        "showthrough_bleed-through.html"
     ]
 }
