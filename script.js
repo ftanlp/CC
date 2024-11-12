@@ -1,90 +1,72 @@
-// Sample data structure that would be loaded from index.json
-const pages = ['details/abrasion.html', 'details/foxing.html'];
-
-// Function to fetch and parse HTML content
-async function fetchHTML(url) {
+document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch(url);
-        const text = await response.text();
-        const parser = new DOMParser();
-        return parser.parseFromString(text, 'text/html');
+        const response = await fetch('index.json');
+        const pages = await response.json();
+        
+        const tilesContainer = document.getElementById('tilesContainer');
+        
+        // Load and parse all detail pages
+        for (const page of pages) {
+            const pageResponse = await fetch(`details/${page}`);
+            const pageText = await pageResponse.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(pageText, 'text/html');
+            
+            // Extract required information
+            const title = doc.querySelector('h2').textContent;
+            const description = doc.querySelector('.condition-description').textContent;
+            const materials = doc.querySelector('.materials-affected').textContent.split(',').map(m => m.trim());
+            const imgSrc = doc.querySelector('img').getAttribute('src');
+            
+            // Create tile
+            const tile = createTile(title, description, imgSrc, materials, page);
+            tilesContainer.appendChild(tile);
+        }
+        
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                filterTiles(filter);
+                
+                // Update active button
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+        
     } catch (error) {
-        console.error('Error fetching HTML:', error);
-        return null;
+        console.error('Error loading content:', error);
     }
-}
+});
 
-// Function to extract preview data from detail pages
-async function extractPreviewData(url) {
-    const doc = await fetchHTML(url);
-    if (!doc) return null;
-
-    return {
-        title: doc.querySelector('.detail-title').textContent,
-        description: doc.querySelector('.description').textContent,
-        image: doc.querySelector('.detail-image').src,
-        material: doc.querySelector('.material').textContent,
-        url: url
-    };
-}
-
-// Function to create grid items
-function createGridItem(data) {
-    const gridItem = document.createElement('a');
-    gridItem.href = data.url;
-    gridItem.className = `grid-item ${data.material.toLowerCase()}`;
+function createTile(title, description, imgSrc, materials, pageUrl) {
+    const tile = document.createElement('div');
+    tile.className = 'tile';
+    tile.dataset.materials = materials.join(' ');
     
-    gridItem.innerHTML = `
-        <img src="${data.image}" alt="${data.title}">
-        <div class="grid-content">
-            <h2 class="grid-title">${data.title}</h2>
-            <p class="grid-description">${data.description.substring(0, 100)}...</p>
-        </div>
+    const shortDescription = description.slice(0, 100) + '...';
+    
+    tile.innerHTML = `
+        <a href="details/${pageUrl}">
+            <img src="${imgSrc}" alt="${title}">
+            <h3>${title}</h3>
+            <p>${shortDescription}</p>
+        </a>
     `;
     
-    return gridItem;
+    return tile;
 }
 
-// Function to initialize the grid
-async function initializeGrid() {
-    const gridContainer = document.getElementById('gridContainer');
-    const previewData = await Promise.all(pages.map(page => extractPreviewData(page)));
-    
-    previewData.forEach(data => {
-        if (data) {
-            const gridItem = createGridItem(data);
-            gridContainer.appendChild(gridItem);
+function filterTiles(filter) {
+    const tiles = document.querySelectorAll('.tile');
+    tiles.forEach(tile => {
+        const materials = tile.dataset.materials;
+        if (filter === 'all' || materials.includes(filter)) {
+            tile.style.display = 'block';
+        } else {
+            tile.style.display = 'none';
         }
     });
 }
-
-// Function to handle material filtering
-function initializeFilters() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const filter = button.dataset.filter;
-            
-            // Update active button
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            
-            // Filter grid items
-            const gridItems = document.querySelectorAll('.grid-item');
-            gridItems.forEach(item => {
-                if (filter === 'all' || item.classList.contains(filter)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-    });
-}
-
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    initializeGrid();
-    initializeFilters();
-});

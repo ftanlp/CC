@@ -1,13 +1,7 @@
 {
     "pages": [
-        "details/abrasion.html",
-        "details/creases.html",
-        "details/delamination.html",
-        "details/foxing.html",
-        "details/frass.html",
-        "details/mould.html",
-        "details/pest-damage.html",
-        "details/rust.html",
-        "showthrough_bleed-through.html"
+        "abrasion.html",
+        "foxing.html",
+        "delamination.html"
     ]
 }

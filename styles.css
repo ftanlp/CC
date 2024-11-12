@@ -1,4 +1,12 @@
-/* Reset and base styles */
+/* styles.css */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --text-color: #333;
+    --background-color: #f5f6fa;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,157 +16,132 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
 
-/* Navigation */
-.navbar {
-    background-color: #333;
-    color: white;
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.navigation {
+    background-color: var(--primary-color);
     padding: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    text-align: right;
 }
 
-.nav-brand {
-    font-size: 1.5rem;
+.navigation a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1.5rem;
     font-weight: bold;
+}
+
+h1 {
+    color: var(--primary-color);
+    text-align: center;
     margin-bottom: 1rem;
 }
 
-.material-filters {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+h2 {
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.filter-container {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .filter-btn {
-    background: none;
-    border: 1px solid white;
-    color: white;
     padding: 0.5rem 1rem;
-    cursor: pointer;
+    margin: 0 0.5rem;
+    border: none;
     border-radius: 4px;
-    transition: all 0.3s ease;
+    background-color: var(--secondary-color);
+    color: white;
+    cursor: pointer;
 }
 
 .filter-btn.active {
-    background: white;
-    color: #333;
+    background-color: var(--accent-color);
 }
 
-/* Grid Layout */
-.grid-container {
+.tiles-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    padding: 2rem;
-}
-
-.grid-item {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    text-decoration: none;
-    color: inherit;
-}
-
-.grid-item:hover {
-    transform: translateY(-5px);
-}
-
-.grid-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.grid-content {
     padding: 1rem;
 }
 
-.grid-title {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-
-.grid-description {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-/* Detail Page */
-.detail-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.detail-column {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.detail-image {
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
+.tile {
+    background: white;
     border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
 
-.detail-title {
-    font-size: 2rem;
-    color: #333;
+.tile:hover {
+    transform: translateY(-5px);
 }
 
-.detail-section {
-    margin-bottom: 1.5rem;
-}
-
-.detail-section h2 {
-    color: #666;
-    margin-bottom: 0.5rem;
-}
-
-.back-btn {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border: 1px solid white;
+.tile img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
     border-radius: 4px;
-    float: right;
 }
 
-/* Mobile Responsiveness */
+.tile h3 {
+    margin: 1rem 0;
+    color: var(--primary-color);
+}
+
+.tile p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .tiles-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
-    .grid-container {
+    .tiles-container {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-        padding: 1rem;
     }
+}
 
-    .detail-container {
+@media (max-width: 480px) {
+    .tiles-container {
         grid-template-columns: 1fr;
-        padding: 1rem;
     }
-
-    .nav-brand {
-        margin-bottom: 0.5rem;
-    }
-
-    .material-filters {
+    
+    .filter-container {
+        display: flex;
+        flex-direction: column;
         gap: 0.5rem;
     }
-
+    
     .filter-btn {
-        padding: 0.3rem 0.8rem;
-        font-size: 0.9rem;
+        width: 100%;
+        margin: 0;
     }
 }

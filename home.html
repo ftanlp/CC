@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materials Archive</title>
+    <title>Conservation Compendium</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-brand">Conservation Compendium</div>
-        <div class="material-filters">
+    <nav class="navigation">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+    </nav>
+    
+    <main>
+        <h1>Conservation Compendium</h1>
+        <h2>A nifty reference to conservation condition terms</h2>
+        
+        <div class="filter-container">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="textile">Textile</button>
             <button class="filter-btn" data-filter="paper">Paper</button>
-            <button class="filter-btn" data-filter="paper">Book</button>
+            <button class="filter-btn" data-filter="book">Book</button>
             <button class="filter-btn" data-filter="metal">Metal</button>
         </div>
-    </nav>
-
-    <main>
-        <div class="grid-container" id="gridContainer">
-            <!-- Grid items will be dynamically populated here -->
+        
+        <div class="tiles-container" id="tilesContainer">
+            <!-- Tiles will be dynamically populated here -->
         </div>
     </main>
-
+    
+    <footer>
+        <p>© 2024 Conservation Compendium. All rights reserved.</p>
+    </footer>
+    
     <script src="script.js"></script>
 </body>
 </html>
