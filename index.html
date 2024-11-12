@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conservation Compendium</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <nav class="navigation">
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+        </div>
     </nav>
     
     <main>
@@ -24,8 +26,8 @@
             <button class="filter-btn" data-filter="metal">Metal</button>
         </div>
         
-        <div class="tiles-container" id="tilesContainer">
-            <!-- Tiles will be dynamically populated here -->
+        <div class="tiles-container">
+            <!-- Tiles will be populated by JavaScript -->
         </div>
     </main>
     
@@ -33,6 +35,6 @@
         <p>© 2024 Conservation Compendium. All rights reserved.</p>
     </footer>
     
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

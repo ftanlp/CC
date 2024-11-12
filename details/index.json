@@ -1,0 +1,16 @@
+{
+  "conditions": [
+      {
+          "file": "abrasion.html",
+          "materials": ["textile", "paper"]
+      },
+      {
+          "file": "foxing.html",
+          "materials": ["paper", "book"]
+      },
+      {
+          "file": "delamination.html",
+          "materials": ["paper", "metal"]
+      }
+  ]
+}

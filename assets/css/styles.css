@@ -1,4 +1,3 @@
-/* styles.css */
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #34495e;
@@ -20,40 +19,43 @@ body {
     background-color: var(--background-color);
 }
 
+nav {
+    background-color: var(--primary-color);
+    padding: 1rem;
+}
+
+.nav-links {
+    text-align: right;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1.5rem;
+}
+
 main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
 }
 
-.navigation {
-    background-color: var(--primary-color);
-    padding: 1rem;
-    text-align: right;
-}
-
-.navigation a {
-    color: white;
-    text-decoration: none;
-    margin-left: 1.5rem;
-    font-weight: bold;
-}
-
 h1 {
+    font-size: 2.5rem;
     color: var(--primary-color);
     text-align: center;
     margin-bottom: 1rem;
 }
 
 h2 {
+    font-size: 2rem;
     color: var(--secondary-color);
-    margin-bottom: 2rem;
-    text-align: center;
+    margin-bottom: 1.5rem;
 }
 
 .filter-container {
+    margin: 2rem 0;
     text-align: center;
-    margin-bottom: 2rem;
 }
 
 .filter-btn {
@@ -74,36 +76,40 @@ h2 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    padding: 1rem;
 }
 
 .tile {
     background: white;
     border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.tile:hover {
-    transform: translateY(-5px);
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .tile img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 4px;
 }
 
-.tile h3 {
-    margin: 1rem 0;
-    color: var(--primary-color);
+.tile-content {
+    padding: 1rem;
 }
 
-.tile p {
-    font-size: 0.9rem;
-    color: var(--text-color);
+.detail-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.image-column img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.img-caption {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-style: italic;
 }
 
 footer {
@@ -111,37 +117,23 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    margin-top: 2rem;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .tiles-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
     .tiles-container {
         grid-template-columns: repeat(2, 1fr);
     }
-}
-
-@media (max-width: 480px) {
-    .tiles-container {
+    
+    .detail-container {
         grid-template-columns: 1fr;
     }
     
     .filter-container {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 0.5rem;
-    }
-    
-    .filter-btn {
-        width: 100%;
-        margin: 0;
     }
 }
