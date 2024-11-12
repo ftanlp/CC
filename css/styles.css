@@ -120,6 +120,47 @@ footer {
     margin-top: 2rem;
 }
 
+.loading {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    display: none;
+}
+
+.error {
+    text-align: center;
+    padding: 2rem;
+    color: #e74c3c;
+    display: none;
+}
+
+.tile {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.tile:hover {
+    transform: translateY(-5px);
+}
+
+.tile a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.tile-content {
+    padding: 1rem;
+}
+
+.tile-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .tiles-container {

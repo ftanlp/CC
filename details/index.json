@@ -1,16 +1,22 @@
 {
-  "conditions": [
-      {
-          "file": "abrasion.html",
-          "materials": ["textile", "paper"]
-      },
-      {
-          "file": "foxing.html",
-          "materials": ["paper", "book"]
-      },
-      {
-          "file": "delamination.html",
-          "materials": ["paper", "metal"]
-      }
-  ]
+    "conditions": [
+        {
+            "title": "Abrasion",
+            "description": "Mechanical wearing, grinding, or rubbing away of material surface.",
+            "materials": ["textile", "paper"],
+            "imagePath": "images/placeholder.jpg"
+        },
+        {
+            "title": "Foxing",
+            "description": "Reddish-brown spots or blotches on paper caused by aging and chemical reactions.",
+            "materials": ["paper", "book"],
+            "imagePath": "images/placeholder.jpg"
+        },
+        {
+            "title": "Delamination",
+            "description": "Separation of layers in a composite material or coating.",
+            "materials": ["paper", "metal"],
+            "imagePath": "images/placeholder.jpg"
+        }
+    ]
 }
