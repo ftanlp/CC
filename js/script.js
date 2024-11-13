@@ -12,28 +12,28 @@ function initializeHomepage() {
     loadingElement.style.display = 'block';
 
     // Create some sample data if index.json isn't loading
-    const sampleData = {
-        conditions: [
-            {
-                title: "Abrasion",
-                description: "Mechanical wearing, grinding, or rubbing away of material surface.",
-                materials: ["textile", "paper"],
-                imagePath: "images/placeholder.jpg"
-            },
-            {
-                title: "Foxing",
-                description: "Reddish-brown spots or blotches on paper caused by aging and chemical reactions.",
-                materials: ["paper", "book"],
-                imagePath: "images/placeholder.jpg"
-            },
-            {
-                title: "Delamination",
-                description: "Separation of layers in a composite material or coating.",
-                materials: ["paper", "metal"],
-                imagePath: "images/placeholder.jpg"
-            }
-        ]
-    };
+    // const sampleData = {
+    //     conditions: [
+    //         {
+    //             title: "Abrasion",
+    //             description: "Mechanical wearing, grinding, or rubbing away of material surface.",
+    //             materials: ["textile", "paper"],
+    //             imagePath: "images/placeholder.jpg"
+    //         },
+    //         {
+    //             title: "Foxing",
+    //             description: "Reddish-brown spots or blotches on paper caused by aging and chemical reactions.",
+    //             materials: ["paper", "book"],
+    //             imagePath: "images/placeholder.jpg"
+    //         },
+    //         {
+    //             title: "Delamination",
+    //             description: "Separation of layers in a composite material or coating.",
+    //             materials: ["paper", "metal"],
+    //             imagePath: "images/placeholder.jpg"
+    //         }
+    //     ]
+    // };
 
     // First try to fetch the JSON file
     fetch('details/index.json')
@@ -73,7 +73,7 @@ function createTile(condition) {
     tile.dataset.materials = condition.materials.join(' ');
     
     tile.innerHTML = `
-        <a href="details/${condition.title.toLowerCase()}.html">
+        <a href="details/${condition.URL}">
             <img src="${condition.imagePath}" alt="${condition.title}">
             <div class="tile-content">
                 <h3>${condition.title}</h3>

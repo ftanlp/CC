@@ -2,21 +2,66 @@
     "conditions": [
         {
             "title": "Abrasion",
-            "description": "Mechanical wearing, grinding, or rubbing away of material surface.",
-            "materials": ["textile", "paper"],
-            "imagePath": "images/placeholder.jpg"
+            "URL": "abrasion.html",
+            "description": "Loss of surface material due to rubbing, scraping, or wear",
+            "materials": ["textile", "paper", "book", "metal"],
+            "imagePath": "images/details/abrasion.jpg"
         },
         {
-            "title": "Foxing",
-            "description": "Reddish-brown spots or blotches on paper caused by aging and chemical reactions.",
-            "materials": ["paper", "book"],
-            "imagePath": "images/placeholder.jpg"
+            "title": "Crease",
+            "URL": "crease.html",
+            "description": "line of crushed or broken substrate fibers resulting from a fold",
+            "materials": ["paper", "book", "textile"],
+            "imagePath": "images/details/crease.jpg"
         },
         {
             "title": "Delamination",
-            "description": "Separation of layers in a composite material or coating.",
-            "materials": ["paper", "metal"],
-            "imagePath": "images/placeholder.jpg"
+            "URL": "delamination.html",
+            "description": "Separation of layers in an object due to the failure of an adhesive or binding agent",
+            "materials": ["paper", "book"],
+            "imagePath": "images/details/delamination.jpg"
+        },
+        {
+            "title": "Foxing",
+            "URL": "foxing.html",
+            "description": "Reddish-brown spots or blotches on paper",
+            "materials": ["paper", "book"],
+            "imagePath": "images/details/foxing.jpg"
+        },
+        {
+            "title": "Frass",
+            "URL": "frass.html",
+            "description": "Insect excrement or poop",
+            "materials": ["paper", "book", "textile", "metal"],
+            "imagePath": "images/details/frass.jpg"
+        },
+        {
+            "title": "Insect Damage",
+            "URL": "insect-damage.html",
+            "description": "Physical damage caused due to insects or pests",
+            "materials": ["paper", "book"],
+            "imagePath": "images/details/insect01.jpg"
+        },
+        {
+            "title": "Mould",
+            "URL": "mould.html",
+            "description": "Fungi growth that appears usually as black spots",
+            "materials": ["paper", "book"],
+            "imagePath": "images/details/mould01.jpg"
+        },
+        {
+            "title": "Rust",
+            "URL": "rust.html",
+            "description": "Reddish-brown coating caused by oxidation of iron or iron alloys",
+            "materials": ["metal"],
+            "imagePath": "images/details/rust.jpg"
+        },
+        {
+            "title": "Showthrough/Bleedthrough",
+            "URL": "showthrough_bleed-through.html",
+            "description": "Inks or printing showing on the reverse side",
+            "materials": ["paper", "books"],
+            "imagePath": "images/details/bleedthrough.jpg"
         }
     ]
 }
