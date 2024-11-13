@@ -1,5 +1,3 @@
-// detail-navigation.js - Handles the detail pages navigation
-
 document.addEventListener('DOMContentLoaded', function() {
     initializeDetailPage();
 });

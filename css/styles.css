@@ -2,8 +2,8 @@
     --primary-color: #2c3e50;
     --secondary-color: #34495e;
     --accent-color: #3498db;
-    --text-color: #333;
-    --background-color: #f5f6fa;
+    --text-color:#0C236C;
+    --background-color: #E3E9FC;
 }
 
 * {
@@ -30,7 +30,7 @@ nav {
 }
 
 .nav-links a {
-    color: white;
+    color: #E3E9FC;
     text-decoration: none;
     margin-left: 1.5rem;
 }
@@ -86,7 +86,7 @@ p {
 }
 
 .tile {
-    background: white;
+    background:#FCF5E3;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -142,8 +142,7 @@ img {
     text-align: center;
     font-style: italic;
     max-width: 600px;
-    margin: 0 auto;
-    color: #666;  
+    margin: 0 auto; 
 }
 
 .image-column {
@@ -165,7 +164,6 @@ img {
     font-style: italic;
     max-width: 600px;
     margin: 0 auto;
-    color: #666;
 }
 
 ul {
@@ -180,7 +178,7 @@ ul {
     position: relative;
     z-index: 1001;
     background-color: var(--primary-color);
-    color: white;
+    color: #E3E9FC;
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
@@ -188,8 +186,8 @@ ul {
 }
 
 .disclaimer {
-    color: white;
-    font-size: 0.5rem;
+    color: #E3E9FC;
+    font-size: 0.65rem;
     text-align: center;
     padding: 0.5rem;
 }
@@ -210,7 +208,7 @@ ul {
 }
 
 .tile {
-    background: white;
+    background: #FCF5E3;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -242,7 +240,7 @@ ul {
     right: 2rem;
     display: flex;
     gap: 1rem;
-    background-color: white;
+    background-color: #E3E9FC;
     padding: 0.5rem;
     border-radius: 2rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -258,7 +256,7 @@ ul {
     justify-content: center;
     border-radius: 50%;
     background-color: var(--primary-color);
-    color: white;
+    color: #E3E9FC;
     text-decoration: none;
     transition: all 0.3s ease;
 }

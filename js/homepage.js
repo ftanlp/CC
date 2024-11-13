@@ -1,5 +1,3 @@
-// homepage.js - Handles the main page functionality
-
 document.addEventListener('DOMContentLoaded', function() {
     initializeHomepage();
 });
