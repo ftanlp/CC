@@ -1,3 +1,5 @@
+// homepage.js - Handles the main page functionality
+
 document.addEventListener('DOMContentLoaded', function() {
     initializeHomepage();
 });
@@ -11,31 +13,7 @@ function initializeHomepage() {
 
     loadingElement.style.display = 'block';
 
-    // Create some sample data if index.json isn't loading
-    // const sampleData = {
-    //     conditions: [
-    //         {
-    //             title: "Abrasion",
-    //             description: "Mechanical wearing, grinding, or rubbing away of material surface.",
-    //             materials: ["textile", "paper"],
-    //             imagePath: "images/placeholder.jpg"
-    //         },
-    //         {
-    //             title: "Foxing",
-    //             description: "Reddish-brown spots or blotches on paper caused by aging and chemical reactions.",
-    //             materials: ["paper", "book"],
-    //             imagePath: "images/placeholder.jpg"
-    //         },
-    //         {
-    //             title: "Delamination",
-    //             description: "Separation of layers in a composite material or coating.",
-    //             materials: ["paper", "metal"],
-    //             imagePath: "images/placeholder.jpg"
-    //         }
-    //     ]
-    // };
-
-    // First try to fetch the JSON file
+    // Fetch the condition data
     fetch('details/index.json')
         .then(response => {
             if (!response.ok) {
@@ -45,16 +23,16 @@ function initializeHomepage() {
         })
         .then(data => {
             displayConditions(data.conditions);
+            setupFilters();
         })
         .catch(error => {
-            console.log('Falling back to sample data:', error);
-            displayConditions(sampleData.conditions);
+            console.error('Error loading data:', error);
+            errorElement.style.display = 'block';
+            errorElement.textContent = 'Error loading content. Please try again later.';
         })
         .finally(() => {
             loadingElement.style.display = 'none';
         });
-
-    setupFilters();
 }
 
 function displayConditions(conditions) {
@@ -73,7 +51,7 @@ function createTile(condition) {
     tile.dataset.materials = condition.materials.join(' ');
     
     tile.innerHTML = `
-        <a href="details/${condition.URL}">
+        <a href="${condition.URL}">
             <img src="${condition.imagePath}" alt="${condition.title}">
             <div class="tile-content">
                 <h3>${condition.title}</h3>
