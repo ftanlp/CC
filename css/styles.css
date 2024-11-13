@@ -60,6 +60,21 @@ p {
     margin-bottom: 1rem;
 }
 
+img {
+    max-width: 75%;
+    max-height: 75%;
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+.img-caption {
+    text-align: center;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto; 
+}
+
 .filter-container {
     margin: 2rem 0;
     text-align: center;
@@ -99,7 +114,7 @@ p {
 }
 
 .tile-content {
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 .detail-wrapper {
@@ -111,45 +126,30 @@ p {
 
 .detail-title {
     margin-bottom: 0;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
 }
 
 .detail-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 2rem;
     align-items: start;
 }
 
 .image-column {
     position: relative;
-    top: -2rem; /* This aligns the image with the h2 header */
+    top: -2rem; 
 }
 
 .content-column {
-    padding-bottom: 4rem; /* Space for floating navigation */
-}
-
-img {
-    max-width: 75%;
-    max-height: 75%;
-    display: flex;
-    align-items: center;
-    padding-top: 2rem;
-}
-
-.img-caption {
-    text-align: center;
-    font-style: italic;
-    max-width: 600px;
-    margin: 0 auto; 
+    padding-bottom: 4rem; 
 }
 
 .image-column {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .image-column img {
@@ -225,12 +225,12 @@ ul {
 }
 
 .tile-content {
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 .tile-content h3 {
     color: var(--primary-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 /* Navigation Controls */
@@ -276,17 +276,29 @@ ul {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+    main {
+        padding: 0.5rem 0.5rem;
+    }
+    
     .tiles-container {
         grid-template-columns: repeat(2, 1fr);
+        gap: 0.25rem; 
+        padding: 0.25rem;
+    }
+
+    .tile {
+        margin: 0.25rem;
+        padding: 0.25rem;
+    }
+
+    .tile img {
+        height: 150px; 
+        object-fit: cover; 
     }
     
     .detail-container {
         grid-template-columns: 1fr;
         gap: 2rem;
-    }
-
-    .image-column {
-        top: 0;
     }
 
     .nav-button .material-icons {
@@ -303,5 +315,24 @@ ul {
         flex-wrap: wrap;
         justify-content: center;
         gap: 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem; 
+    }
+
+    h2 {
+        font-size: 1rem; 
+    }
+
+    .tile-content h3 {
+        font-size: 1rem; 
+    }
+
+    p, .tile-content p {
+        font-size: 0.8rem; 
+    }
+
+    }
     }
 }
