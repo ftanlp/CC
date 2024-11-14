@@ -294,8 +294,8 @@ ul {
     }
 
      .tile {
-            margin: 0.5rem 0; /* Adjusted margins */
-            width: 100%; /* Ensure full width */
+            margin: 0.5rem 0; 
+            width: 100%; 
     }
 
     .tile img {
@@ -331,6 +331,10 @@ ul {
     }
 
     h2 {
+        font-size: 1rem; 
+    }
+
+    h3 {
         font-size: 1rem; 
     }
 
