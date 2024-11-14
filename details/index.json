@@ -10,7 +10,7 @@
         {
             "title": "Crease",
             "URL": "/details/crease.html",
-            "description": "line of crushed or broken substrate fibers resulting from a fold",
+            "description": "Line of crushed or broken substrate fibers resulting from a fold",
             "materials": ["paper", "book", "textile"],
             "imagePath": "images/details/crease.jpg"
         },
