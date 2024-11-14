@@ -57,7 +57,7 @@
             "imagePath": "images/details/rust.jpg"
         },
         {
-            "title": "Showthrough/Bleedthrough",
+            "title": "Showthrough/ Bleedthrough",
             "URL": "/details/showthrough_bleed-through.html",
             "description": "Inks or printing showing on the reverse side",
             "materials": ["paper", "books"],
