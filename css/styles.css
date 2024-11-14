@@ -291,6 +291,7 @@ ul {
         grid-template-columns: 1fr; 
         gap: 1rem; 
         padding: 0.5rem;
+    }
 
      .tile {
             margin: 0.5rem 0; /* Adjusted margins */
@@ -339,8 +340,5 @@ ul {
 
     p, .tile-content p {
         font-size: 0.8rem; 
-    }
-
-    }
     }
 }
