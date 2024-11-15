@@ -304,6 +304,11 @@ ul {
         object-fit: cover;
         display: block; 
     }
+
+    .content-column {
+        padding-top: 1rem;
+        padding-bottom: 4rem; 
+    }
     
     .detail-container {
         grid-template-columns: 1fr;
@@ -342,9 +347,6 @@ ul {
     .tile-content h3 {
         font-size: 1rem; 
     }
-
-    
-    
 
     p, 
     .tile-content p, 
