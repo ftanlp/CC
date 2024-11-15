@@ -328,11 +328,11 @@ ul {
     }
 
     h1 {
-        font-size: 1.5rem; 
+        font-size: 1.75rem; 
     }
 
     h2 {
-        font-size: 1rem; 
+        font-size: 1.5rem; 
     }
 
     h3 {
@@ -343,7 +343,13 @@ ul {
         font-size: 1rem; 
     }
 
-    p, .tile-content p, ul, ul li {
+    
+    
+
+    p, 
+    .tile-content p, 
+    ul, 
+    ul li {
         font-size: 0.8rem; 
     }
 }
