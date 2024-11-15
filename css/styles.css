@@ -343,7 +343,7 @@ ul {
         font-size: 1rem; 
     }
 
-    p, .tile-content p {
+    p, .tile-content p, ul, ul li {
         font-size: 0.8rem; 
     }
 }
