@@ -293,7 +293,7 @@ ul {
         padding: 0.5rem;
     }
 
-     .tile {
+    .tile {
             margin: 0.5rem 0; 
             width: 100%; 
     }
@@ -308,6 +308,7 @@ ul {
     .detail-container {
         grid-template-columns: 1fr;
         gap: 2rem;
+        display: block;
     }
 
     .nav-button .material-icons {
